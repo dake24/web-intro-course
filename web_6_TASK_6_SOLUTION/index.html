@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Поиск книги по автору</title>
+</head>
+<body>
+
+<script>
+  var books = [
+    {"title": "Harry Potter and the Philosopher's Stone", "author": "Joanne Rowling", "isbn": "1233123", "price": "50$"},
+    {"title": "Harry Potter and the Chamber of Secrets", "author": "Joanne Rowling", "isbn": "222332", "price": "40$"},
+    {"title": "Harry Potter and the Prisoner of Azkaban", "author": "Joanne Rowling", "isbn": "452323", "price": "55$"},
+    {"title": "The Hobbit", "author": "J.R.R. Tolkien", "isbn": "123456", "price": "45$"},
+    {"title": "The Lord of the Rings: The Fellowship of the Ring", "author": "J.R.R. Tolkien", "isbn": "789012", "price": "60$"},
+    {"title": "The Catcher in the Rye", "author": "J.D. Salinger", "isbn": "345678", "price": "30$"},
+    {"title": "To Kill a Mockingbird", "author": "Harper Lee", "isbn": "901234", "price": "35$"},
+    {"title": "1984", "author": "George Orwell", "isbn": "567890", "price": "25$"},
+  ];
+
+  var searchAuthor = prompt("Введите автора:");
+
+  var foundBooks = books.filter(function(book) {
+    return book.author === searchAuthor;
+  });
+
+  var output = "";
+  foundBooks.forEach(function(book) {
+    output += book.title + " - " + book.author + " - " + book.isbn + " - " + book.price + "\n";
+  });
+
+  alert(output);
+</script>
+
+</body>
+</html>
+

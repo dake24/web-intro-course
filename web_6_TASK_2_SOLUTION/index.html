@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Максимальный элемент в массиве</title>
+</head>
+<body>
+
+<script>
+  var n = parseInt(prompt("Введите количество элементов:"));
+  var numbers = [];
+  
+  for (var i = 0; i < n; i++) {
+    var element = parseInt(prompt("Введите элемент " + (i + 1) + ":"));
+    numbers.push(element);
+  }
+
+  var maxNumber = Math.max(...numbers);
+  alert(maxNumber);
+</script>
+
+</body>
+</html>
+

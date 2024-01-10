@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Сумма и среднее значение чисел в массиве</title>
+</head>
+<body>
+
+<script>
+  var n = parseInt(prompt("Введите количество элементов:"));
+  var numbers = [];
+  var sum = 0;
+  
+  for (var i = 0; i < n; i++) {
+    var element = parseInt(prompt("Введите элемент " + (i + 1) + ":"));
+    numbers.push(element);
+    sum += element;
+  }
+
+  var average = sum / numbers.length;
+  alert(sum + ' ' + average);
+</script>
+
+</body>
+</html>
+
