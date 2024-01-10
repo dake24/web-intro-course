@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Распределение яблок</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя числа n (школьников) и k (яблок)
+  var n = prompt("Введите число школьников:");
+  var k = prompt("Введите число яблок:");
+
+  // Преобразуем введенные значения в числа
+  n = parseInt(n);
+  k = parseInt(k);
+
+  // Вычисляем количество яблок для каждого школьника
+  var applesPerStudent = Math.floor(k / n);
+
+  // Выводим результат через alert()
+  alert("Каждому школьнику достанется " + applesPerStudent + " яблок");
+</script>
+
+</body>
+</html>
+

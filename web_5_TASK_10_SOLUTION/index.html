@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Аутентификация</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя логин и пароль
+  var login = prompt("Введите логин:");
+  var password = prompt("Введите пароль:");
+
+  // Проверяем совпадение логина и пароля с заданными значениями
+  if (login === "user" && password === "qwerty") {
+    // Если логин и пароль совпадают, выводим "Authentication completed"
+    alert("Authentication completed");
+  } else {
+    // Если логин и/или пароль не совпадают, выводим "Invalid login or password"
+    alert("Invalid login or password");
+  }
+</script>
+
+</body>
+</html>
+

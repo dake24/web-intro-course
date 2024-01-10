@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Оценка за семестр</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя количество баллов за семестр
+  var points = prompt("Введите количество баллов за семестр:");
+
+  // Преобразуем введенное значение в число
+  points = parseInt(points);
+
+  // Оцениваем полученные баллы
+  var grade = '';
+  if (points >= 90) {
+    grade = 'A';
+  } else if (points >= 75) {
+    grade = 'B';
+  } else if (points >= 60) {
+    grade = 'C';
+  } else if (points >= 50) {
+    grade = 'D';
+  } else {
+    grade = 'F';
+  }
+
+  // Выводим результат
+  alert(grade);
+</script>
+
+</body>
+</html>
+

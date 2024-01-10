@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Покупка вискаса с кэшбэком</title>
+</head>
+<body>
+
+<script>
+  // Цена одной пачки вискаса
+  var pricePerPack = 120;
+
+  // Запрашиваем у пользователя количество пачек вискаса
+  var packsToBuy = prompt("Введите количество пачек вискаса:");
+
+  // Преобразуем введенное значение в число
+  packsToBuy = parseInt(packsToBuy);
+
+  // Вычисляем общую стоимость без учета кэшбэка
+  var totalCost = packsToBuy * pricePerPack;
+
+  // Проверяем условие кэшбэка и вычисляем итоговую сумму с учетом скидки
+  var finalCost = totalCost;
+  if (totalCost > 4000) {
+    finalCost = totalCost * 0.9; // Применяем скидку 10%
+  }
+
+  // Выводим результат
+  alert(finalCost + " KZT");
+</script>
+
+</body>
+</html>
+

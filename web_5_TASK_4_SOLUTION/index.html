@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Операции с тремя числами</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя три целых числа a, b и c
+  var a = prompt("Введите число a:");
+  var b = prompt("Введите число b:");
+  var c = prompt("Введите число c:");
+
+  // Преобразуем введенные значения в числа
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+
+  // Выполняем операции
+  var sum = a + b + c;
+  var diff = a - b - c;
+  var product = a * b * c;
+
+  // Формируем строки с результатами операций
+  var sumResult = "a + b + c = " + sum;
+  var diffResult = "a - b - c = " + diff;
+  var productResult = "a * b * c = " + product;
+
+  // Выводим результаты через alert()
+  alert(sumResult + "\n" + diffResult + "\n" + productResult);
+</script>
+
+</body>
+</html>
+

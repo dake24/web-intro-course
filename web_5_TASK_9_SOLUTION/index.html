@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обмен валюты</title>
+</head>
+<body>
+
+<script>
+  // Курсы обмена валют
+  var exchangeRates = {
+    USD: 380,
+    EUR: 430,
+    GBP: 480
+  };
+
+  // Запрашиваем у пользователя количество денег и номер валюты
+  var amount = prompt("INSERT YOUR AMOUNT IN KZT:");
+  var currencyChoice = prompt("1- CONVERT TO USD\n2- CONVERT TO EUR\n3- CONVERT TO GBP");
+
+  // Преобразуем введенные значения в число
+  amount = parseInt(amount);
+  currencyChoice = parseInt(currencyChoice);
+
+  var convertedAmount = 0;
+  var currencySymbol = '';
+
+  // Вычисляем сумму в выбранной валюте
+  switch (currencyChoice) {
+    case 1:
+      convertedAmount = amount / exchangeRates.USD;
+      currencySymbol = 'USD';
+      break;
+    case 2:
+      convertedAmount = amount / exchangeRates.EUR;
+      currencySymbol = 'EUR';
+      break;
+    case 3:
+      convertedAmount = amount / exchangeRates.GBP;
+      currencySymbol = 'GBP';
+      break;
+    default:
+      alert("Некорректный выбор валюты!");
+  }
+
+  // Выводим результат
+  alert(amount + " KZT = " + convertedAmount.toFixed(2) + " " + currencySymbol);
+</script>
+
+</body>
+</html>
+

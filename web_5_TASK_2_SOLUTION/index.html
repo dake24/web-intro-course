@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Проверка деления чисел</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем значения a и b у пользователя
+  var a = prompt("Введите значение a:");
+  var b = prompt("Введите значение b:");
+
+  // Преобразуем введенные значения в числа
+  a = parseFloat(a);
+  b = parseFloat(b);
+
+  // Проверяем, делится ли a на b
+  if (a % b === 0) {
+    // Если делится, выводим "Divisible"
+    alert("Divisible");
+  } else {
+    // Если не делится, выводим "Not Divisible"
+    alert("Not Divisible");
+  }
+</script>
+
+</body>
+</html>
+

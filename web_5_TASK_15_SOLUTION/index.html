@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обмен денег в обменнике</title>
+</head>
+<body>
+
+<script>
+  // Курс доллара
+  var exchangeRate = 380;
+
+  // Запрашиваем у пользователя количество тенге для обмена
+  var amountInTenge = prompt("Введите количество тенге для обмена:");
+
+  // Преобразуем введенное значение в число
+  amountInTenge = parseInt(amountInTenge);
+
+  // Вычисляем количество долларов
+  var dollars = Math.floor(amountInTenge / exchangeRate);
+  // Вычисляем количество центов
+  var cents = amountInTenge % exchangeRate;
+
+  // Проверяем, сколько центов получилось после обмена
+  var output = "";
+  if (cents > 0) {
+    output = dollars + " USD and " + cents + " cents";
+  } else {
+    output = "ONLY " + dollars + " USD";
+  }
+
+  // Выводим результат
+  alert(output);
+</script>
+
+</body>
+</html>
+

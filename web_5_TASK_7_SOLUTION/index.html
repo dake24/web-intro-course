@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Время прибытия на свадьбу</title>
+</head>
+<body>
+
+<script>
+  // Время начала свадьбы в Актобе (18:00)
+  var weddingTime = new Date();
+  weddingTime.setHours(18, 0, 0); // Устанавливаем время свадьбы
+
+  // Текущее время
+  var currentTime = new Date();
+  currentTime.setHours(15, 45, 0); // Устанавливаем текущее время (15:45)
+
+  // Запрашиваем у пользователя среднюю скорость и расстояние до Актобе
+  var speed = prompt("Введите среднюю скорость вашей машины (в км/ч):");
+  var distance = prompt("Введите расстояние до Актобе (в км):");
+
+  // Преобразуем введенные значения в числа
+  speed = parseInt(speed);
+  distance = parseInt(distance);
+
+  // Вычисляем время в пути
+  var travelTime = distance / speed;
+
+  // Добавляем время в пути к текущему времени
+  currentTime.setHours(currentTime.getHours() + Math.floor(travelTime), currentTime.getMinutes() + Math.floor((travelTime % 1) * 60));
+
+  // Проверяем, успеваем ли мы к времени свадьбы
+  if (currentTime < weddingTime) {
+    // Если успеем, выводим "YES, YOU CAN REACH"
+    alert("YES, YOU CAN REACH");
+  } else {
+    // Если не успеем, выводим "NO, YOU CAN NOT REACH"
+    alert("NO, YOU CAN NOT REACH");
+  }
+</script>
+
+</body>
+</html>
+

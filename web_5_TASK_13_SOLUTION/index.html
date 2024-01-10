@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Определение будущей профессии</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя выбор ветви образования
+  var branch = prompt("Choose your branch:\n1 - Science, 2 - Humanitarian subjects, 3 - Art, 4 - Sport:");
+
+  // Преобразуем введенное значение в число
+  branch = parseInt(branch);
+
+  var profession = '';
+
+  // Определяем профессию в зависимости от выбора ветви образования
+  switch (branch) {
+    case 1:
+      var scienceChoice = prompt("1 - Math, 2 - Physics:");
+      scienceChoice = parseInt(scienceChoice);
+      if (scienceChoice === 1) {
+        profession = 'You are Financier';
+      } else if (scienceChoice === 2) {
+        profession = 'You are Engineer';
+      }
+      break;
+    case 2:
+      var humanitarianChoice = prompt("1 - History, 2 - Foreign Languages:");
+      humanitarianChoice = parseInt(humanitarianChoice);
+      if (humanitarianChoice === 1) {
+        profession = 'You are Historic or Diplomat';
+      } else if (humanitarianChoice === 2) {
+        profession = 'You are Translator';
+      }
+      break;
+    case 3:
+      var artChoice = prompt("1 - Drawing, 2 - Singing:");
+      artChoice = parseInt(artChoice);
+      if (artChoice === 1) {
+        profession = 'You are Painter or Architect';
+      } else if (artChoice === 2) {
+        profession = 'You are Singer or Tamada';
+      }
+      break;
+    case 4:
+      var sportChoice = prompt("1 - Team, 2 - Individual:");
+      sportChoice = parseInt(sportChoice);
+      if (sportChoice === 1) {
+        profession = 'You are footballer or Basketball player';
+      } else if (sportChoice === 2) {
+        profession = 'You are boxer or tennis player';
+      }
+      break;
+    default:
+      profession = 'Invalid choice';
+  }
+
+  // Выводим результат
+  alert(profession);
+</script>
+
+</body>
+</html>
+

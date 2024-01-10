@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Гипотенуза прямоугольного треугольника</title>
+</head>
+<body>
+
+<script>
+  // Запрашиваем у пользователя длины катетов a и b
+  var a = prompt("Введите длину катета a:");
+  var b = prompt("Введите длину катета b:");
+
+  // Преобразуем введенные значения в числа
+  a = parseFloat(a);
+  b = parseFloat(b);
+
+  // Вычисляем гипотенузу по формуле Пифагора
+  var hypotenuse = Math.sqrt(a * a + b * b);
+
+  // Выводим результат через alert()
+  alert("Гипотенуза треугольника равна " + hypotenuse);
+</script>
+
+</body>
+</html>
+
