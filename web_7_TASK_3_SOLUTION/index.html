@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Вывод положительных чисел из массива</title>
+</head>
+<body>
+
+<script>
+  var numbers = [];
+  var input = parseInt(prompt("Введите число:"));
+
+  while (input !== 0) {
+    if (input !== 0) {
+      numbers.push(input);
+    }
+    input = parseInt(prompt("Введите число:"));
+  }
+
+  var positiveNumbers = numbers.filter(function(num) {
+    return num > 0;
+  });
+
+  alert(positiveNumbers.join(' '));
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Поиск автомобилей по критериям</title>
+</head>
+<body>
+
+<script>
+  var cars = [
+    {"name":"Toyota", "price": 12000000, "year": 2015, "volume": 2.2},
+    {"name":"Mercedes", "price": 70000000, "year": 2018, "volume": 3.8},
+    {"name":"Toyota", "price": 7000000, "year": 2013, "volume": 2.0},
+    {"name":"BMW", "price": 11000000, "year": 2011, "volume": 3.0},
+    {"name":"Lexus", "price": 60000000, "year": 2017 ,"volume": 5.7}
+  ];
+
+  function searchByName(name) {
+    var result = cars.filter(function(car) {
+      return car.name.toLowerCase() === name.toLowerCase();
+    });
+    return result;
+  }
+
+  function searchByYear(startYear, endYear) {
+    var result = cars.filter(function(car) {
+      return car.year >= startYear && car.year <= endYear;
+    });
+    return result;
+  }
+
+  function searchByVolume(startVolume, endVolume) {
+    var result = cars.filter(function(car) {
+      return car.volume >= startVolume && car.volume <= endVolume;
+    });
+    return result;
+  }
+
+  function searchByPrice(startPrice, endPrice) {
+    var result = cars.filter(function(car) {
+      return car.price >= startPrice && car.price <= endPrice;
+    });
+    return result;
+  }
+
+  var choice = -1;
+
+  while (choice !== 5) {
+    choice = parseInt(prompt("Выберите критерий:\n1 - Поиск по имени\n2 - Поиск по году выпуска\n3 - Поиск по объему двигателя\n4 - Поиск по цене\n5 - Выход"));
+
+    switch (choice) {
+      case 1:
+        var name = prompt("Введите имя машины:");
+        var resultByName = searchByName(name);
+        var outputByName = resultByName.map(function(car) {
+          return car.name + " - " + car.year + " - " + car.volume + " liters - " + car.price + " KZT";
+        }).join('\n');
+        alert(outputByName);
+        break;
+      case 2:
+        var startYear = parseInt(prompt("Введите начальный год:"));
+        var endYear = parseInt(prompt("Введите конечный год:"));
+        var resultByYear = searchByYear(startYear, endYear);
+        var outputByYear = resultByYear.map(function(car) {
+          return car.name + " - " + car.year + " - " + car.volume + " liters - " + car.price + " KZT";
+        }).join('\n');
+        alert(outputByYear);
+        break;
+      case 3:
+        var startVolume = parseFloat(prompt("Введите начальный объем двигателя:"));
+        var endVolume = parseFloat(prompt("Введите конечный объем двигателя:"));
+        var resultByVolume = searchByVolume(startVolume, endVolume);
+        var outputByVolume = resultByVolume.map(function(car) {
+          return car.name + " - " + car.year + " - " + car.volume + " liters - " + car.price + " KZT";
+        }).join('\n');
+        alert(outputByVolume);
+        break;
+      case 4:
+        var startPrice = parseInt(prompt("Введите начальную цену:"));
+        var endPrice = parseInt(prompt("Введите конечную цену:"));
+        var resultByPrice = searchByPrice(startPrice, endPrice);
+        var outputByPrice = resultByPrice.map(function(car) {
+          return car.name + " - " + car.year + " - " + car.volume + " liters - " + car.price + " KZT";
+        }).join('\n');
+        alert(outputByPrice);
+        break;
+      case 5:
+        alert("Завершение программы");
+        break;
+      default:
+        alert("Неверный ввод");
+        break;
+    }
+  }
+</script>
+
+</body>
+</html>
+

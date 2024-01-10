@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Поиск числа в массиве</title>
+</head>
+<body>
+
+<script>
+  var n = parseInt(prompt("Введите количество чисел:"));
+  var numbers = [];
+  
+  for (var i = 0; i < n; i++) {
+    var element = parseInt(prompt("Введите число " + (i + 1) + ":"));
+    numbers.push(element);
+  }
+
+  var m = parseInt(prompt("Введите число для поиска:"));
+
+  var found = numbers.indexOf(m);
+  if (found !== -1) {
+    alert("Yes " + found);
+  } else {
+    alert("No");
+  }
+</script>
+
+</body>
+</html>
+

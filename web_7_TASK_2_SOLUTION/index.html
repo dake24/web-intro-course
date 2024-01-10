@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Геометрическая средняя чисел</title>
+</head>
+<body>
+
+<script>
+  var numbers = [];
+  var input = parseInt(prompt("Введите число:"));
+
+  while (input !== 0) {
+    numbers.push(input);
+    input = parseInt(prompt("Введите число:"));
+  }
+
+  var product = 1;
+  for (var i = 0; i < numbers.length; i++) {
+    product *= numbers[i];
+  }
+
+  var geometricMean = Math.pow(product, 1 / numbers.length);
+  alert(geometricMean.toFixed(3));
+</script>
+
+</body>
+</html>
+

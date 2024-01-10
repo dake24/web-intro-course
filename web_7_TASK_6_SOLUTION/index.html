@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Управление списком студентов</title>
+</head>
+<body>
+
+<script>
+  var students = [];
+
+  function addStudent() {
+    var name = prompt("INSERT NAME:");
+    var surname = prompt("INSERT SURNAME:");
+    var gpa = parseFloat(prompt("INSERT GPA:"));
+
+    var student = {
+      name: name,
+      surname: surname,
+      gpa: gpa
+    };
+
+    students.push(student);
+    alert("Student added successfully!");
+  }
+
+  function listStudents() {
+    var studentList = "List of Students:\n";
+    for (var i = 0; i < students.length; i++) {
+      studentList += "Name: " + students[i].name + " - Surname: " + students[i].surname + " - GPA: " + students[i].gpa + "\n";
+    }
+    alert(studentList);
+  }
+
+  var choice = -1;
+
+  while (choice !== 0) {
+    choice = parseInt(prompt("PRESS 1 TO ADD STUDENT\nPRESS 2 TO LIST STUDENT\nPRESS 0 TO EXIT"));
+
+    switch (choice) {
+      case 1:
+        addStudent();
+        break;
+      case 2:
+        listStudents();
+        break;
+      case 0:
+        alert("Exiting program");
+        break;
+      default:
+        alert("Invalid input");
+        break;
+    }
+  }
+</script>
+
+</body>
+</html>
+
