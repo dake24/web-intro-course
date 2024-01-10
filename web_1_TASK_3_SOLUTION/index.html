@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+</head>
+<body>
+	<h2>Registration Form</h2>
+	<form>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" id="name" name="name"></td>
+			</tr>
+			<tr>
+				<td>Surname:</td>
+				<td><input type="text" id="surname" name="surname"></td>
+			</tr>
+			<tr>
+				<td>Patronymic:</td>
+				<td><input type="text" id="patronymic" name="patronymic"></td>
+			</tr>
+			<tr>
+				<td>Hometown:</td>
+				<td>
+					<select id="hometown" name="hometown">
+						<option value="almaty" selected>Almaty</option>
+						<option value="astana">Astana</option>
+						<option value="karaganda">Karaganda</option>
+						<option value="shymkent">Shymkent</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					<input type="radio" id="male" name="gender" value="male" checked>
+					<label for="male">Male</label><br>
+					<input type="radio" id="female" name="gender" value="female">
+					<label for="female">Female</label><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Date of Birth:</td>
+				<td><input type="date" id="dob" name="dob"></td>
+			</tr>
+			<tr>
+				<td>Education:</td>
+				<td>
+					<select id="education" name="education">
+						<option value="rfmsh">RFMSH Almaty</option>
+						<option value="kaznu">KazNU Almaty</option>
+						<option value="kbtu">KBTU Almaty</option>
+						<option value="kimep">KIMEP Almaty</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>ENT Scores:</td>
+				<td><input type="number" id="score" name="score" min="0" max="100"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Register"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
