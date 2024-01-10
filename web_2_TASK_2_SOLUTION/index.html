@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск и покупка билетов на фильмы</title>
+</head>
+<body>
+
+<form>
+    <label for="movie_name">Название фильма:</label>
+    <input type="text" id="movie_name" name="movie_name"><br><br>
+
+    <label for="cinema">Кинотеатры:</label>
+    <select id="cinema" name="cinema">
+        <option value="paramount_city">Кинотеатр Paramount City</option>
+        <option value="cinema_palace">Кинотеатр Cinema Palace</option>
+        <option value="imax_cinema">IMAX-кинотеатр</option>
+    </select><br><br>
+
+    <label for="session_time">Время сеанса:</label>
+    <select id="session_time" name="session_time">
+        <option value="21:30">21:30</option>
+        <option value="22:00">22:00</option>
+        <option value="22:30">22:30</option>
+    </select><br><br>
+
+    <input type="submit" value="Поиск Фильма">
+</form>
+
+</body>
+</html>
+
