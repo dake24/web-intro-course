@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Card Transaction</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" placeholder="Enter card number">
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" placeholder="Enter full name">
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" placeholder="Enter CVV">
+
+    <button onclick="processTransaction()">Submit</button>
+
+    <p id="resultMessage"></p>
+</div>
+
+<script>
+    var cardDatabase = [
+        { cardNumber: "1234567890123456", fullName: "John Doe", cvv: "123" },
+        { cardNumber: "9876543210987654", fullName: "Jane Doe", cvv: "456" },
+    ];
+
+    function processTransaction() {
+        var cardNumberInput = document.getElementById("cardNumber").value;
+        var fullNameInput = document.getElementById("fullName").value;
+        var cvvInput = document.getElementById("cvv").value;
+        var resultMessage = document.getElementById("resultMessage");
+
+        var accountFound = cardDatabase.some(function(account) {
+            return account.cardNumber === cardNumberInput && account.cvv === cvvInput;
+        });
+
+        if (accountFound) {
+            resultMessage.innerText = "Transaction completed";
+            resultMessage.classList.remove("error");
+        } else {
+            resultMessage.innerText = "Invalid Data";
+            resultMessage.classList.add("error");
+        }
+    }
+</script>
+
+</body>
+</html>
+

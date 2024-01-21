@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<form onsubmit="convertCurrency(event)">
+    <label>
+        Amount:
+        <input type="number" id="amount" required>
+    </label>
+
+    <label>
+        Currency:
+        <select id="currency" required>
+            <option value="KZT">Tenge (KZT)</option>
+            <option value="USD">US Dollar (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+        </select>
+    </label>
+
+    <button type="submit">Convert</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    const exchangeRates = {
+        KZT: { USD: 0.00232, EUR: 0.001965 },
+        USD: { KZT: 429, EUR: 0.85 },
+        EUR: { KZT: 507, USD: 1.18 }
+    };
+
+    function convertCurrency(event) {
+        event.preventDefault();
+
+        const amountInput = parseFloat(document.getElementById("amount").value);
+        const currencySelect = document.getElementById("currency");
+        const selectedCurrency = currencySelect.value;
+        const resultDiv = document.getElementById("result");
+
+        if (isNaN(amountInput) || amountInput <= 0) {
+            resultDiv.innerText = "Invalid amount";
+            return;
+        }
+
+        const targetCurrencies = Object.keys(exchangeRates[selectedCurrency]);
+
+        const resultHTML = targetCurrencies.map(targetCurrency => {
+            const rate = exchangeRates[selectedCurrency][targetCurrency];
+            const convertedAmount = (amountInput * rate).toFixed(2);
+            return `<p>${amountInput} ${selectedCurrency} is approximately ${convertedAmount} ${targetCurrency}</p>`;
+        }).join('');
+
+        resultDiv.innerHTML = resultHTML;
+    }
+</script>
+
+</body>
+</html>
+

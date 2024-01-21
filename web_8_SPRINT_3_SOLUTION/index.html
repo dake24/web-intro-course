@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<form onsubmit="validateForm(event)">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" required>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="errorMessage" class="error"></p>
+
+<script>
+    var registeredEmails = ["user@example.com"];
+
+    function validateForm(event) {
+        event.preventDefault();
+
+        var emailInput = document.getElementById("email").value;
+        var passwordInput = document.getElementById("password").value;
+        var confirmPasswordInput = document.getElementById("confirmPassword").value;
+        var errorMessage = document.getElementById("errorMessage");
+
+        if (!isValidEmail(emailInput)) {
+            errorMessage.innerText = "Invalid email address";
+            return;
+        }
+        
+        if (!isEmailUnique(emailInput)) {
+            errorMessage.innerText = "Email address is already registered";
+            return;
+        }
+
+        if (passwordInput.length < 6) {
+            errorMessage.innerText = "Password must be at least 6 characters long";
+            return;
+        }
+
+        if (passwordInput !== confirmPasswordInput) {
+            errorMessage.innerText = "Passwords do not match";
+            return;
+        }
+
+        errorMessage.innerText = "Registration successful";
+    }
+
+    function isValidEmail(email) {
+        return email.includes("@") && email.includes(".");
+    }
+    
+    function isEmailUnique(email) {
+        return !registeredEmails.includes(email);
+    }
+</script>
+
+</body>
+</html>
+

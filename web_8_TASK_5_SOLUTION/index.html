@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        #thumbnailGallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .thumbnail {
+            max-width: 10%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        #mainImage {
+            display: block;
+            width: 1500px;
+            height: 800px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+<img id="mainImage" src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="Main Image">
+<div id="thumbnailGallery"></div>
+
+<script>
+    var imageList = [
+        "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+        "https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg",
+        "https://media.istockphoto.com/id/843408508/photo/photography-camera-lens-concept.jpg?s=612x612&w=0&k=20&c=-tm5TKrPDMakrT1vcOE-4Rlyj-iBVdzKuX4viFkd7Vo=",
+    ];
+
+    function initializeGallery() {
+        var thumbnailGallery = document.getElementById("thumbnailGallery");
+        var mainImage = document.getElementById("mainImage");
+
+        for (var i = 0; i < imageList.length; i++) {
+            var thumbnail = document.createElement("img");
+            thumbnail.src = imageList[i];
+            thumbnail.alt = "Thumbnail " + (i + 1);
+            thumbnail.classList.add("thumbnail");
+            thumbnail.addEventListener("click", function (index) {
+                return function () {
+                    mainImage.src = imageList[index];
+                };
+            }(i));
+            thumbnailGallery.appendChild(thumbnail);
+        }
+    }
+
+    initializeGallery();
+</script>
+
+</body>
+</html>
