@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        /* Простой CSS для стилизации формы */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label, select, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Registration Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Kazakhstan">Kazakhstan</option>
+        </select>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        <button type="button" id="saveDraftBtn">Save to Draft</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registrationForm');
+            const saveDraftBtn = document.getElementById('saveDraftBtn');
+
+            loadDraftData();
+
+            saveDraftBtn.addEventListener('click', function () {
+                saveDataToDraft();
+            });
+
+            function saveDataToDraft() {
+                const formData = {
+                    name: form.name.value,
+                    surname: form.surname.value,
+                    country: form.country.value,
+                    phoneNumber: form.phoneNumber.value
+                };
+                localStorage.setItem('draftData', JSON.stringify(formData));
+                alert('Data saved to draft!');
+            }
+
+            function loadDraftData() {
+                const draftData = localStorage.getItem('draftData');
+                if (draftData) {
+                    const formData = JSON.parse(draftData);
+                    form.name.value = formData.name;
+                    form.surname.value = formData.surname;
+                    form.country.value = formData.country;
+                    form.phoneNumber.value = formData.phoneNumber;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

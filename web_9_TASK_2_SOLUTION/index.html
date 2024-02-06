@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Online Store</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .basket-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Product List</h2>
+    <div id="productList">
+        <div class="product">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <button class="addToBasketBtn" data-product="Product 1">Add to Basket</button>
+        </div>
+        <div class="product">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <button class="addToBasketBtn" data-product="Product 2">Add to Basket</button>
+        </div>
+    </div>
+
+    <h2>Basket</h2>
+    <div id="basket">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productList = document.getElementById('productList');
+            const basket = document.getElementById('basket');
+
+            const addToBasketButtons = document.querySelectorAll('.addToBasketBtn');
+            addToBasketButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productName = button.dataset.product;
+                    addToBasket(productName);
+                });
+            });
+
+            function addToBasket(productName) {
+                let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+                basketItems.push(productName);
+                localStorage.setItem('basketItems', JSON.stringify(basketItems));
+                renderBasket();
+            }
+
+            function removeFromBasket(index) {
+                let basketItems = JSON.parse(localStorage.getItem('basketItems'));
+                basketItems.splice(index, 1);
+                localStorage.setItem('basketItems', JSON.stringify(basketItems));
+                renderBasket();
+            }
+
+            function renderBasket() {
+                let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+                basket.innerHTML = '';
+                basketItems.forEach((item, index) => {
+                    const basketItem = document.createElement('div');
+                    basketItem.classList.add('basket-item');
+                    basketItem.textContent = item;
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.addEventListener('click', function () {
+                        removeFromBasket(index);
+                    });
+                    basketItem.appendChild(removeButton);
+                    basket.appendChild(basketItem);
+                });
+            }
+
+            renderBasket();
+        });
+    </script>
+</body>
+</html>
+
